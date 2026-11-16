@@ -80,7 +80,7 @@ async function applyRollover(ctx, agent, source, text, signal) {
     await flushContextWindowState(ctx, session);
 }
 /** Replace the complete active surface with the model-authored prose handoff. */
-export async function applyExplicitRollover(ctx, agent, pending, signal) {
+async function applyExplicitRollover(ctx, agent, pending, signal) {
     const anchors = await recoveryAnchors(ctx, agent.session, pending.turn, pending.step, 'tool_use', signal);
     await applyRollover(ctx, agent, {
         kind: 'obelisk-context-handoff',

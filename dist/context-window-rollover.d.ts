@@ -2,7 +2,6 @@ import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent';
 import type { Context } from '@deepseek-ai/cordis';
 import type { Session } from '@deepseek-ai/dsh-session';
 import type { ContextWindowBudgetDecision } from './context-window-budget.ts';
-import type { PendingRollover } from './context-window-state.ts';
 import type { RelatedFile } from './context-window-related-files.ts';
 export type ContextRolloverTrigger = {
     kind: 'model';
@@ -42,8 +41,6 @@ export declare function contextPressureMessage(phase: 'reminder' | 'fallback', g
         generation: number;
     };
 } & Pick<import("@deepseek-ai/dsh-llm").UserMessage, "role" | "id">;
-/** Replace the complete active surface with the model-authored prose handoff. */
-export declare function applyExplicitRollover(ctx: Context, agent: Agent, pending: PendingRollover, signal?: AbortSignal): Promise<void>;
 /** Replace the complete active surface with a host-authored recovery instruction. */
 export declare function applyForcedRollover(ctx: Context, agent: Agent, signal?: AbortSignal): Promise<void>;
 /** Apply rollover or add one durable pressure instruction at the pre-step boundary. */
