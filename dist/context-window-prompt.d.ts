@@ -1,4 +1,5 @@
 import type { RelatedFile } from './context-window-related-files.ts';
+/** @internal Exported for tests. */
 export declare const CONTEXT_WINDOW_OBELISK_SCOPE = "Scope Obelisk recovery to the supplied `session_id` and use `context(message_uuid)` at the previous-window boundary; do not search global history or other sessions.";
 /** Stable model guidance for prose handoff and scoped Obelisk recovery. */
 export declare const CONTEXT_WINDOW_GUIDANCE: string;
